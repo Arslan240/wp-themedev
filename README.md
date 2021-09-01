@@ -1,1 +1,1 @@
-# wp-themedev
+# wordpress101-how it works
