@@ -22,3 +22,19 @@
 	add_action('wp_enqueue_scripts','awesome_script_enqueue');
 
 	//we also have do_action(), we pass it the hookname and the additional arguments or parameters that our custom function needs. This function works with add_action() and from there the arguments are passed to the function.
+
+/** TODO ADDING HOOK TO ENABLE MENU FUNCTION IN OUR THEME */
+
+
+	function awesome_theme_setup(){
+		add_theme_support('menus'); //this is the hook which enables the menu option in the wordpress theme. but we will add it in the function
+		//we are enabling menu so...
+
+		//we also need to  enable wp theme to have a menu by default which will add all the previous pages to it. To do that we use another hook
+		register_nav_menu('primary','Primary Header Navigation'); //we'll use this menu in header file so it will be displayed in all the pages.
+//
+		register_nav_menu('secondary','Footer Navigation'); //adding another menu to use for footer links and stuff. we'll use this menu in the footer.php file.
+	}
+
+	add_action('init','awesome_theme_setup'); //hook is init, and function is awesome_theme_setup(). //init means this function will be called on initialization.
+
